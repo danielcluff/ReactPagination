@@ -1,2 +1,2 @@
-# ReactPagination
+# ReactPaginationClass
 A simple pagination component built with classes.
