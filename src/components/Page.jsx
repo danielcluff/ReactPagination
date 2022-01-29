@@ -43,9 +43,9 @@ export default class Page extends React.Component {
     return (
       <div className='mx-auto max-w-2xl bg-white rounded-none sm:shadow-lg sm:rounded-md border border-gray-300 overflow-hidden'>
         <div className="overflow-x-auto">
-          <table className='min-w-full overflow-x-auto divide-y divide-gray-200'>
+          <table className='min-w-full'>
             <thead className='bg-gray-50'>
-              <tr className='text-sm text-left text-gray-500 uppercase tracking-wider'>
+              <tr className='text-sm text-left text-gray-500 uppercase tracking-wider border-b border-gray-200'>
                 <th className='px-6 py-3'>Flag</th>
                 <th className='px-6 py-3'>Country</th>
                 <th className='px-6 py-3'>Capital</th>
@@ -58,7 +58,7 @@ export default class Page extends React.Component {
                   key={country.name.common}
                   flagUrl={country.flags.png}
                   name={country.name.common}
-                  capital={country.capital}
+                  capital={country.capital[0]}
                   language={this.handleLanguageSelectRandomizer(country.languages)}
                 />
               ))}
