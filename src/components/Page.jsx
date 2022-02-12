@@ -58,7 +58,7 @@ export default class Page extends React.Component {
                   key={country.name.common}
                   flagUrl={country.flags.png}
                   name={country.name.common}
-                  capital={country.capital[0]}
+                  capital={country.capital?.[0]}
                   language={this.handleLanguageSelectRandomizer(country.languages)}
                 />
               ))}
