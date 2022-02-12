@@ -46,21 +46,17 @@ export default class Pagination extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.objectArray !== prevProps.objectArray) {
-      if (this.props.objectArray.length > this.state.itemsPerPage) {
-        this.setState({
-          fullObjectArray: this.props.objectArray,
-          totalItems: this.props.objectArray.length,
-          activePage: 1,
-        });
-        this.handleInitPagination(this.props.objectArray);
-      } else {
-        this.setState({
-          totalItems: this.props.objectArray.length,
-          objectArray: this.props.objectArray,
-          activePage: 1,
-        });
-      }
-      this.handlePaginationChange(0);
+      this.setState({
+        objectArray: this.props.objectArray,
+        fullObjectArray: this.props.objectArray,
+        totalItems: this.props.objectArray.length,
+        activePage: 1,
+      }, () => {
+        if (this.props.objectArray.length > this.state.itemsPerPage) {
+          this.handleInitPagination(this.props.objectArray);
+        }
+        this.handlePaginationChange(0);
+      });
     }
   }
 
